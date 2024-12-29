@@ -6,7 +6,7 @@ const initialGameBoard = [
   [null, null, null], 
   [null, null, null],
 ];
-const GameBoard = () => {
+const GameBoard = ({onSelectSquare}) => {
     // it's special react hook that keep track of the game board.
   // set to initialGameBoard mean it's empty.
   const[gameBoard, setGameBoard] =useState(initialGameBoard);
@@ -17,6 +17,9 @@ const GameBoard = () => {
       updatedBoard[rowIndex] [colIndex] = 'X';
       return updatedBoard;
     })
+    onSelectSquare();
+    // Executing a function that is defined outside of this GameBoard component to inside GameBoard component
+    // becuase the value for this onSelectSquare prop should be a function
   }
   return (
     <ol id='game-board'>
