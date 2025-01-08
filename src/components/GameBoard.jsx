@@ -6,7 +6,7 @@ const initialGameBoard = [
   [null, null, null], 
   [null, null, null],
 ];
-const GameBoard = ({onSelectSquare}) => {
+const GameBoard = ({onSelectSquare, activePlayerSymbol}) => {
     // it's special react hook that keep track of the game board.
   // set to initialGameBoard mean it's empty.
   const[gameBoard, setGameBoard] =useState(initialGameBoard);
@@ -14,7 +14,7 @@ const GameBoard = ({onSelectSquare}) => {
   function handleSelectSquare(rowIndex, colIndex){
     setGameBoard((prevGameboard) =>{
       const updatedBoard =[...prevGameboard.map(innerArray => [...innerArray])];
-      updatedBoard[rowIndex] [colIndex] = 'X';
+      updatedBoard[rowIndex] [colIndex] = activePlayerSymbol;
       return updatedBoard;
     })
     onSelectSquare();

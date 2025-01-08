@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 
 // initialName  and symbole is props in here 
-const Player = ({initialName, symbole}) => {
+const Player = ({initialName, symbole, isActive}) => {
   // keep track of the player's name initailized with initailName
   const [playerName, setPlayerName] =useState(initialName)
   // follwoing is the usestate it's hook that will keep track of name is being edited
@@ -23,7 +23,7 @@ const Player = ({initialName, symbole}) => {
       // updates the name as user type
       }
   return (
-      <li>
+      <li className={isActive ? 'active' : undefined}>
         <span className="player">
         {editablePlayerName}
         <span className="player-symbol">{symbole}</span>
